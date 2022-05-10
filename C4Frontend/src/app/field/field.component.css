@@ -1,0 +1,26 @@
+.move{
+    background-color: lightskyblue;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.move :hover {
+    cursor: pointer;
+}
+.move > div {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.white {
+    background-color: white;
+}
+.red {
+    background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}

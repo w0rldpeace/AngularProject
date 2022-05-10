@@ -1,1 +1,10 @@
 <p>playfield works!</p>
+
+<div class="gameContainer" [ngClass] = "{'disabled':winner}">
+
+    <app-field *ngFor="let field of this.playField; let indexOfElement = index " [index]="indexOfElement" [color] = "this.playField[indexOfElement]" ></app-field>
+
+</div>
+<div class="winner" *ngIf="winner">
+    Gewonnen
+</div>
