@@ -70,11 +70,41 @@ export class PlayfieldComponent implements OnInit {
 
   checkVerticalWin() : boolean {
     let pointCounter : number = 0
-    for(let x = 0; x < this.playField.length; x++){
-      if(this.playField[x] == this.gameState){
-        if(this.playField[x+7] == this.gameState){
+
+    for(let x = 0; x < this.sizeX; x++){
+      
+      if(x % 7 == 0){
+        pointCounter = 0
+      }
+
+      for(let y = 0; y < this.sizeY; y++){
+        let index = y * this.sizeX + x
+
+        if(this.playField[index] == this.gameState){
           pointCounter++
-          if(pointCounter >= 4){
+          if(pointCounter === 4){
+            return true
+          } 
+        } else {
+          pointCounter = 0
+        }
+      }
+    }
+
+    return false
+  }
+
+  checkDiaRightWin() : boolean {
+    let pointCounter : number = 0
+    
+    //durchiterieren durch alle felder
+    for(let x = 3*this.sizeX; x < this.playField.length; x++){
+      if(x % 7 < 4 ){
+      //durchiterieren nach rechts oben
+      for(let i = 0; i < 4; i++){
+        if(this.playField[x-i*6] == this.gameState){
+          pointCounter++
+          if(pointCounter === 4){
             return true
           }
         } else {
@@ -82,17 +112,32 @@ export class PlayfieldComponent implements OnInit {
         }
       }
     }
-    return false
   }
 
-  checkDiaRightWin() : boolean {
-    let pointCounter : number = 0
-
     return false
-  }
+}
 
   checkDiaLeftWin() : boolean {
     let pointCounter : number = 0
+
+        //durchiterieren durch alle felder
+        for(let x = 3*this.sizeX; x < this.playField.length; x++){
+          if(x % 7 > 3 ){
+          //durchiterieren nach links oben
+          for(let i = 0; i < 4; i++){
+            console.log(x-i*8)
+            if(this.playField[x-i*8] == this.gameState){
+              pointCounter++
+              if(pointCounter === 4){
+                return true
+              }
+            } else {
+              pointCounter = 0
+            }
+          }
+          console.log("-----------------------------------------")
+        }
+      }
 
     return false
   }
