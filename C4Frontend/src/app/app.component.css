@@ -1,0 +1,12 @@
+h1 {
+    color: blueviolet;
+    font-size: large;
+}
+.game {
+    display: flex;
+    height: 100vh;
+    background-color: coral;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

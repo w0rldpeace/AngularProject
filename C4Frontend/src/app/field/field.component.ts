@@ -38,8 +38,5 @@ export class FieldComponent implements OnInit {
 
   placeChip(): void {
     this.playField.placeChipAtRow(this.index)
-
-    //alert(this.index)
-    //alert("xPos: " + this.xPos + " yPos: " + this.yPos)
   }
 }

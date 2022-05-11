@@ -38,6 +38,10 @@ export class PlayfieldComponent implements OnInit {
   public placeChipAtRow(index:number) {
 
     let lowestIndexAtRow : number = this.getFreeSlot(index)
+//prüft ob dieses Feld belegt ist
+    if(this.playField[lowestIndexAtRow] !== "white"){
+      return
+    }
     this.playField[lowestIndexAtRow] = this.gameState
 
     this.checkWinCondition()
@@ -135,7 +139,6 @@ export class PlayfieldComponent implements OnInit {
               pointCounter = 0
             }
           }
-          console.log("-----------------------------------------")
         }
       }
 
